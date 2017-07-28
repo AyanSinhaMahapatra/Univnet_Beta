@@ -16,8 +16,6 @@ class Interest(models.Model):
     def __str__(self):
         return self.interest_name
 
-        # Their Department Of Study
-
 
 class Level(models.Model):
     dept_name = models.CharField(max_length=100)
@@ -27,13 +25,14 @@ class Level(models.Model):
 
 
 class Student(models.Model):
-    username_roll = models.IntegerField(primary_key=True)
+    username_roll = models.CharField(primary_key=True, max_length=12)
     email_id = models.EmailField()
-    password = models.CharField(max_length=40)
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    phone_no = models.IntegerField()
-    bio = models.TextField()
+
+    password = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    phone_no = models.CharField(max_length=100)
+    bio = models.TextField(max_length=1000)
     image = models.FileField()
     cv_url = models.CharField(max_length=300)
     year_of_study = models.IntegerField()
@@ -49,11 +48,11 @@ class Student(models.Model):
 class Alumni(models.Model):
     user_name = models.CharField(primary_key=True, max_length=20)  # User Generated Value, alpha-numeric
     email_id = models.EmailField()
-    password = models.CharField(max_length=20)
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    phone_no = models.IntegerField()
-    bio = models.TextField()
+    password = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    phone_no = models.CharField(max_length=100)
+    bio = models.TextField(max_length=1000)
     image = models.FileField()
     cv_url = models.CharField(max_length=300)
     works_at = models.CharField(max_length=50)  # Company or University, Whatever
