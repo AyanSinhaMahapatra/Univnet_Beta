@@ -23,6 +23,11 @@ urlpatterns = [
     url(r'^home/', include('Users.urls')),
 ]
 
+handler404 = 'Univnet_Beta.views.handler400'
+handler500 = 'Univnet_Beta.views.handler500'
+handler403 = 'Univnet_Beta.views.handler400'
+handler400 = 'Univnet_Beta.views.handler400'
+
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
