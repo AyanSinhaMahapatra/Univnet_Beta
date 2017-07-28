@@ -1,5 +1,22 @@
 from django.db import models
 
+class Skill(models.Model):
+    skill_name=models.CharField(max_length=150)
+
+    def __str__(self):
+        return self.skill_name
+
+class School(models.Model):
+    school_name=models.CharField(max_length=300)
+    def __str__(self):
+        return self.school_name
+
+class University(models.Model):
+    univ_name=models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.univ_name
+
 
 # Like B.E. or B.Tech or M.Tech
 class Course(models.Model):
@@ -33,13 +50,28 @@ class Student(models.Model):
     last_name = models.CharField(max_length=100)
     phone_no = models.CharField(max_length=100)
     bio = models.TextField(max_length=1000)
+    extra_curr = models.TextField()
     image = models.FileField()
     cv_url = models.CharField(max_length=300)
     year_of_study = models.IntegerField()
-    course_name = models.ForeignKey(Course, on_delete=models.CASCADE)
+    address = models.TextField(default='I live in Kolkata')
 
-    dept_stud = models.ForeignKey(Level, on_delete=models.CASCADE)
+    # Important TextFields
+
+    experience = models.TextField()
+    projects_info = models.TextField()
+    publications = models.TextField()
+
+    # Foreign Key Containers
+    school_studied = models.ForeignKey(School, blank=True, on_delete=models.CASCADE)
+    univ_studying = models.ForeignKey(University, blank=True, on_delete=models.CASCADE)
+
+    course_name = models.ForeignKey(Course, on_delete=models.CASCADE)
+    level = models.ForeignKey(Level, on_delete=models.CASCADE)
     work_field_main = models.ForeignKey(Interest, on_delete=models.CASCADE)
+
+    # Many to Many Fields
+    skills = models.ManyToManyField(Skill, blank=True)
 
     def __str__(self):
         return f"Roll No: {self.username_roll}"
@@ -55,10 +87,21 @@ class Alumni(models.Model):
     bio = models.TextField(max_length=1000)
     image = models.FileField()
     cv_url = models.CharField(max_length=300)
-    works_at = models.CharField(max_length=50)  # Company or University, Whatever
+    position = models.CharField(max_length=50)  # Company or University, Whatever
 
-    dept_alum = models.ForeignKey(Level, on_delete=models.CASCADE)
+    # Important TextFields
+    experience = models.TextField()
+    projects_info = models.TextField()
+    publications = models.TextField()
+
+    # Foreign Key Containers
+    work = models.ForeignKey(University, on_delete=models.CASCADE)
     work_field_main = models.ForeignKey(Interest, on_delete=models.CASCADE)
+    school_studied = models.ForeignKey(School, on_delete=models.CASCADE)
+    univ_studied = models.ForeignKey(University,  related_name='%(class)s_requests_created')
+
+    # Many to Many Fields
+    skills = models.ManyToManyField(Skill, blank=True)
 
     def __str__(self):
         return self.user_name
