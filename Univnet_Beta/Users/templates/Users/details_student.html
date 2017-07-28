@@ -2,9 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title> STUDENT_DETAILS </title>
 </head>
 <body>
+
+        <img src="{{ student.image.url }}" >
+
+     <h1> Roll Number :-  {{ student.username_roll }}  </h1>
+     <h3> Name :-  {{ student.first_name }} {{ student.last_name }}  </h3>
+     <h3> Email Address :-  {{ student.email_id }}  </h3>
+     <h3> Password :-  {{ student.password }}  </h3>
+     <h3> Phone Number :-  {{ student.phone_no }}  </h3>
+     <h2>  <u> Bio :- </u> </h2>
+     <h3>  {{ student.bio }}  </h3>
+
+     <a href="{{ student.cv_url }}"> Click Here For the CV </a>
+
+     <h3> Year of Study :-  {{ student.year_of_study }}  </h3>
+     <h3> Course Name :-  {{ student.course_name }}  </h3>
+     <h3> Department :-  {{ student.dept_stud }}  </h3>
+     <h3> Work Interest :-  {{ student.work_field_main }}  </h3>
+
 
 </body>
 </html>

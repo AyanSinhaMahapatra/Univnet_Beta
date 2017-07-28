@@ -23,14 +23,15 @@ class departments(models.Model):
         return self.dept_name
 
 class student(models.Model):
-    username_roll=models.IntegerField()
-    email_id=models.CharField(max_length=100)
+    username_roll=models.IntegerField(primary_key=True)
+    email_id=models.EmailField()
     password=models.CharField(max_length=40)
-    name=models.CharField(max_length=50)
+    first_name=models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
     phone_no=models.IntegerField()
-    bio=models.CharField(max_length=600)
-    image_url=models.CharField(max_length=1000)
-    cv_url=models.CharField(max_length=1000)
+    bio=models.TextField()
+    image=models.FileField()
+    cv_url = models.CharField(max_length=300)
     year_of_study=models.IntegerField()
     course_name=models.ForeignKey(course_in,on_delete=models.CASCADE)
 
@@ -42,14 +43,15 @@ class student(models.Model):
 
 
 class alumni(models.Model):
-    user_name=models.CharField(max_length=20)  #User Generated Value
-    email_id = models.CharField(max_length = 30)
+    user_name=models.CharField(primary_key=True,max_length=20)  #User Generated Value, alpha-numeric
+    email_id = models.EmailField()
     password = models.CharField(max_length = 20)
-    name = models.CharField(max_length = 30)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
     phone_no = models.IntegerField()
-    bio = models.CharField(max_length = 200)
-    image_url = models.CharField(max_length = 1000)
-    cv_url = models.CharField(max_length = 1000)
+    bio = models.TextField()
+    image = models.FileField()
+    cv_url = models.CharField(max_length=300)
     works_at = models.CharField(max_length = 50)  #Company or University, Whatever
 
 

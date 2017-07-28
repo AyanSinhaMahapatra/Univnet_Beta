@@ -2,9 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title> ALUMNI_DETAILS</title>
 </head>
 <body>
+
+       <img src="{{ alumni.image.url }}" >
+
+     <h1> User Name :-  {{ alumni.user_name }}  </h1>
+     <h3> Name :-  {{ alumni.first_name }} {{ alumni.last_name }}  </h3>
+     <h3> Email Address :-  {{ alumni.email_id }}  </h3>
+     <h3> Password :-  {{ alumni.password }}  </h3>
+     <h3> Phone Number :-  {{ alumni.phone_no }}  </h3>
+     <h2>  <u> Bio :- </u> </h2>
+     <h3>  {{ alumni.bio }}  </h3>
+
+       <a href="{{ alumni.cv_url }}"> Click Here For the CV </a>
+
+     <h3> Year of Study :-  {{ alumni.year_of_study }}  </h3>
+     <h3> Course Name :-  {{ alumni.course_name }}  </h3>
+     <h3> Department :-  {{ alumni.dept_stud }}  </h3>
+     <h3> Work Interest :-  {{ alumni.work_field_main }}  </h3>
 
 </body>
 </html>
