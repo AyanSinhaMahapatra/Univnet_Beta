@@ -3,13 +3,13 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Ayan Sinha Mahaptra -- Developer -- @ayansinharocks
+    Arpan Bhowmick -- Developer -- @Arpan_09
+    Sayan Goswami -- Developer -- @thenamessayan
 
-# THANKS
-
-    <name>
 
 # TECHNOLOGY COLOPHON
 
-    HTML5, CSS3
+    HTML5, CSS3, Bootstrap
     jQuery, Modernizr
+    Python3, Django
