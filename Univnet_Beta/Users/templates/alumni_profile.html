@@ -80,13 +80,16 @@
                   <img class="profile-pic" src="{{ alumni.image.url }}">
                 </div>
 
+
                 <div class="row intro">
                   <!-- Name & intro -->
                   <h1 class="name"> {{ alumni.first_name }} {{ alumni.last_name }} </h1>
-                  <span class="glyphicon glyphicon-briefcase"></span>
+                  <span class="glyphicon glyphicon-breifcase"></span>
                   <h5 class="bio"> {{ alumni.bio }} </h5>
-                  <h4 class="college"> CEO at UnivNET &#x2022; Jadavpur University </h4>
-                  <h5 class="address"> 514 S. Magnolia St., Orlando </h5>
+                  <h4 class="college">{{ alumni.position }}  </h4>
+                    <h4 class="college"> <strong> {{ alumni.work }} </strong>  </h4>
+                      <h4 class="college"> Interested in  {{ alumni.work_field_main }} </h4>
+
                 </div>
 
             </div>
@@ -96,49 +99,69 @@
                 <div class="row education">
 
 
+                    <h3 class="exp-head"> Contact Details </h3>
+                  <ul>
+
+                    <li class="exp-li">
+                      <p class="exp-about"> Reach me at :- {{ alumni.phone_no  }} </p>
+
+                    </li>
+                      <li class="exp-li">
+                      <p class="exp-about"> Mail me at :- {{ alumni.email_id  }} </p>
+
+
+                  </ul>
 
                   <h3 class="exp-head"> Experience </h3>
                   <ul>
-                    
-                    <li class="exp-li">
-                      <h4 class="exp-name"> Microsoft </h4>
-                      <p class="exp-dept"> Engineering Intern &#x2022; Cloud Services </p>
-                      <p class="exp-duration"> March 2017 - May 2017 </p>
-                      <p class="exp-about"> Built highly scalable containers &amp; services for widespread deployment. Ported legacy code to modern standards. </p>
-                    </li>
-
 
                     <li class="exp-li">
-                      <h4 class="exp-name"> IBM </h4>
-                      <p class="exp-dept"> Engineering Intern &#x2022; Watson API </p>
-                      <p class="exp-duration"> April 2016 - June 2016 </p>
-                      <p class="exp-about"> Created endpoints for Watson's natural language processing API. Succesfully helped clients in identifying key problems for scalability helping bring down costs. </p>
+                      <p class="exp-about"> {{ alumni.experience | linebreaks  }} </p>
                     </li>
-
                   </ul>
 
+                  <h3 class="exp-head"> Projects </h3>
+                  <ul>
+                    <li class="exp-li">
+                      <p class="exp-about"> {{ alumni.projects_info | linebreaks }} </p>
+                    </li>
+                  </ul>
 
+                    <h3 class="exp-head"> Publications </h3>
+                  <ul>
+                    <li class="exp-li">
+                      <p class="exp-about"> {{ alumni.publications| linebreaks  }} </p>
+                    </li>
+                  </ul>
 
+                    <h3 class="exp-head"> CV </h3>
+                  <a href="{{ alumni.cv_url }}"> Click Here  </a> <!--  This is not getting Printed .Fix This. -->
+                    <ul>
+                    <li class="exp-li">
+
+                      <p class="exp-about"> for my C.V. </p>
+                    </li>
+                  </ul>
+
+                   <h3 class="exp-head"> Skills </h3>
+                  <ul>
+                    <li class="exp-li">
+                      <p class="exp-about"> {{ alumni.skills }} </p>
+                    </li>
+                  </ul>
 
                   <h3 class="edu-head"> Education </h3>
                   <ul>
-                    
+
                     <li class="univ-li">
-                      <h4 class="univ-name"> Uncharted University </h4>
+                      <h4 class="univ-name"> {{ alumni.univ_studied }} </h4>
                       <p class="univ-stream"> Bachelor of Engineering, Electronics &amp; Telecommunication Engineering </p>
-                      <p class="univ-graduation"> 2016 - 2020 </p>
-                      <p class="univ-society"> Mountaineering Club &#x2022; Phi Alpha Omega Society &#x2022; Active member at Debating Society </p>
                     </li>
                     <li class="univ-li">
-                      <h4 class="univ-name"> Brooklyn Private School </h4>
-                      <p class="univ-stream"> STEM </p>
-                      <p class="univ-graduation"> 2009 - 2016 </p>
-                      <p class="univ-society"> BPS Socccer Team &#x2022; BPS Rowing Sqaud </p>
+                      <h4 class="univ-name"> {{ alumni.school_studied }} </h4>
                     </li>
 
                   </ul>
-
-
 
                 </div>
             </div>
