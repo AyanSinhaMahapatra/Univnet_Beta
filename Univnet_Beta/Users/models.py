@@ -19,7 +19,7 @@ class Interest(models.Model):
         # Their Department Of Study
 
 
-class Department(models.Model):
+class Level(models.Model):
     dept_name = models.CharField(max_length=100)
 
     def __str__(self):
@@ -39,7 +39,7 @@ class Student(models.Model):
     year_of_study = models.IntegerField()
     course_name = models.ForeignKey(Course, on_delete=models.CASCADE)
 
-    dept_stud = models.ForeignKey(Department, on_delete=models.CASCADE)
+    dept_stud = models.ForeignKey(Level, on_delete=models.CASCADE)
     work_field_main = models.ForeignKey(Interest, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -58,7 +58,7 @@ class Alumni(models.Model):
     cv_url = models.CharField(max_length=300)
     works_at = models.CharField(max_length=50)  # Company or University, Whatever
 
-    dept_alum = models.ForeignKey(Department, on_delete=models.CASCADE)
+    dept_alum = models.ForeignKey(Level, on_delete=models.CASCADE)
     work_field_main = models.ForeignKey(Interest, on_delete=models.CASCADE)
 
     def __str__(self):
