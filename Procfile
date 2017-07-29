@@ -1,1 +1,1 @@
-web: gunicorn Univnet_Beta/Univnet_Beta.wsgi --log-file -
+web: gunicorn Univnet_Beta.wsgi --log-file -
