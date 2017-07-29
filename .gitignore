@@ -45,3 +45,8 @@ crashlytics-build.properties
 fabric.properties
 /Univnet_Beta/.idea/
 .idea/markdown-navigator/
+
+# All python compiled files
+*.pyc
+.idea/
+
