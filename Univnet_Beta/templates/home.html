@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UnivNet Beta</title>
+</head>
+<body>
+{% block content %}
+    <h2>Homepage</h2>
+    <br>
+         {% if user and not user.is_anonymous %}
+             You're signed in as {{ user.get_full_name|default:user.username }}!
+             <br/> Email - {{ user.email }}
+         {% else %}
+             I don’t think we’ve met before.
+        {% endif %}
+    </p>
+{% endblock %}
+</body>
+</html>
