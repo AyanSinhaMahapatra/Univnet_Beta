@@ -9,7 +9,7 @@ class Student_SignUpForm(UserCreationForm):
     email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
     bio = forms.CharField(max_length=1000, help_text='Say how awesome you are.')
     extra_curr = forms.CharField(max_length=1000, help_text='What are your extra curricular activities.')
-    image = forms.ImageField( help_text='Maximum Resoluton : 400 * 400')
+    image = forms.ImageField( help_text='Maximum Resolution : 400 * 400')
     cv_url = forms.CharField(max_length=1000, help_text='Provide the link to your CV.')
     year_of_study = forms.IntegerField()
     address = forms.CharField(max_length=1000,)
