@@ -39,24 +39,28 @@
               </button>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                      {% if user.first_name %}
-                          {{ user.first_name|title }}&nbsp;{{ user.last_name|title }}&nbsp;
-                      {% else %}
-                        {{ user.get_username|title }}&nbsp;
-                      {% endif %}
-                      <span class="caret"></span>
-                  </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Network</a></li>
-                                <li><a href="#">Settings</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Logout</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    {% if user.is_authenticated %}
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                  {% if user.first_name %}
+                                      {{ user.first_name|title }}&nbsp;{{ user.last_name|title }}&nbsp;
+                                  {% else %}
+                                    {{ user.get_username|title }}&nbsp;
+                                  {% endif %}
+                                  <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Network</a></li>
+                                    <li><a href="#">Settings</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    {% else %}
+                        <a class="btn btn-default navbar-btn navbar-right" href="#">Sign in</a>
+                    {% endif %}
                     <form class="navbar-form navbar-right form-search form-inline">
                         <div class="input-group">
                             <input type="text" class="form-control search-query" placeholder="Search..." /> <span class="input-group-btn">

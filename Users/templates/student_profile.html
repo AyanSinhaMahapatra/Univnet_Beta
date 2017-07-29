@@ -2,228 +2,220 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
 {% load static %}
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{{ student.first_name }} | UnivNET</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-        <link rel="stylesheet" href="{% static 'css/bootstrap-flat.min.css' %}">
-        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{{ student.first_name }} | UnivNET</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <script src="{% static 'js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
-    </head>
-    <body>
-      <!--[if lt IE 8]>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-flat.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <script src="{% static 'js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
           <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
       <![endif]-->
-      <div class="wrapper">
-        
-
-        
+    <div class="wrapper">
 
         <nav class="navbar navbar-default navbar-static-top" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <span class="navbar-brand big">UnivNET</span>
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <div class="container">
+                <div class="navbar-header">
+                    <span class="navbar-brand big">UnivNET</span>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                      {% if user.first_name %}
-                          {{ user.first_name }}&nbsp;{{ user.last_name }}&nbsp;
-                      {% else %}
-                        {{ user.get_username }}&nbsp;
-                      {% endif %}
-                      <span class="caret"></span>
-                  </a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">Network</a></li>
-                      <li><a href="#">Settings</a></li>
-                      <li role="separator" class="divider"></li>
-                      <li><a href="#">Logout</a></li>
-                    </ul>
-                </li>
-              </ul>
-              <form class="navbar-form navbar-right form-search form-inline">
-                  <div class="input-group">
-                      <input type="text" class="form-control search-query" placeholder="Search..." /> <span class="input-group-btn">
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    {% if user.is_authenticated %}
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                  {% if user.first_name %}
+                                      {{ user.first_name|title }}&nbsp;{{ user.last_name|title }}&nbsp;
+                                  {% else %}
+                                    {{ user.get_username|title }}&nbsp;
+                                  {% endif %}
+                                  <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Network</a></li>
+                                    <li><a href="#">Settings</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    {% else %}
+                        <a class="btn btn-default navbar-btn navbar-right" href="#">Sign in</a>
+                    {% endif %}
+                    <form class="navbar-form navbar-right form-search form-inline">
+                        <div class="input-group">
+                            <input type="text" class="form-control search-query" placeholder="Search..." /> <span class="input-group-btn">
                       <button type="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-search"></span> </button>
-                      </span>
-                  </div>
-              </form>
-            </div><!--/.navbar-collapse -->
-          </div>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+                <!--/.navbar-collapse -->
+            </div>
         </nav>
 
-
-
-
-
         <div class="container">
-          <!-- Main content -->
-          <div class="row">
-            <div class="col-md-8 card">
-                <!-- Profile container -->
-                
-                <div class="row">
-                  <!-- Cover picture -->
-                  <img class="cover-pic" src="{% static 'img/hero-bg.jpg' %}">
+            <!-- Main content -->
+            <div class="row">
+                <div class="col-md-8 card">
+                    <!-- Profile container -->
+
+                    <div class="row">
+                        <!-- Cover picture -->
+                        <img class="cover-pic" src="{% static 'img/hero-bg.jpg' %}">
+                    </div>
+
+                    <div class="row">
+                        <!-- Profile picture -->
+                        <img class="profile-pic" src="{{ student.image.url }}">
+                    </div>
+
+                    <div class="row intro">
+                        <h1 class="name"> {{ student.first_name }} {{ student.last_name }} </h1>
+                        <span class="glyphicon glyphicon-education"></span>
+                        <h5 class="bio"> {{ student.bio }} </h5>
+                        <h4 class="college">{{ student.level }} Student </h4>
+                        <h4 class="college"> <strong> {{ student.univ_studying }} </strong> </h4>
+                        <h4 class="college"> {{ student.year_of_study }}nd Year </h4>
+                        <h4 class="college"> Interested in {{ student.work_field_main }} </h4>
+
+                    </div>
+
                 </div>
 
-                <div class="row">
-                  <!-- Profile picture -->
-                  <img class="profile-pic" src="{{ student.image.url }}">
-                </div>
+                <div class="col-md-8 card">
+                    <!-- Education & interests -->
+                    <div class="row education">
 
-                <div class="row intro">
-                  <h1 class="name"> {{ student.first_name }} {{ student.last_name }} </h1>
-                  <span class="glyphicon glyphicon-education"></span>
-                  <h5 class="bio"> {{ student.bio }} </h5>
-                  <h4 class="college">{{ student.level }} Student  </h4>
-                    <h4 class="college"> <strong> {{ student.univ_studying }} </strong>  </h4>
-                    <h4 class="college"> {{ student.year_of_study }}nd Year </h4>
-                      <h4 class="college"> Interested in  {{ student.work_field_main }} </h4>
+                        <h3 class="exp-head"> Contact Details </h3>
+                        <ul>
 
+                            <li class="exp-li">
+                                <p class="exp-about"> Reach me at :- {{ student.phone_no }} </p>
+
+                            </li>
+                            <li class="exp-li">
+                                <p class="exp-about"> Mail me at :- {{ student.email_id }} </p>
+
+                            </li>
+                            <li class="exp-li">
+                                <h5 class="address"> {{ student.address| linebreaks }} </h5>
+
+                            </li>
+                        </ul>
+
+                        <h3 class="exp-head"> Experience </h3>
+                        <ul>
+
+                            <li class="exp-li">
+                                <p class="exp-about"> {{ student.experience | linebreaks }} </p>
+                            </li>
+                        </ul>
+
+                        <h3 class="exp-head"> Projects </h3>
+                        <ul>
+                            <li class="exp-li">
+                                <p class="exp-about"> {{ student.projects_info | linebreaks }} </p>
+                            </li>
+                        </ul>
+
+                        <h3 class="exp-head"> Publications </h3>
+                        <ul>
+                            <li class="exp-li">
+                                <p class="exp-about"> {{ student.publications| linebreaks }} </p>
+                            </li>
+                        </ul>
+
+                        <h3 class="exp-head"> Extra-Curricular Activities </h3>
+                        <ul>
+                            <li class="exp-li">
+                                <p class="exp-about"> {{ student.extra_curr | linebreaks }} </p>
+                            </li>
+                        </ul>
+
+                        <h3 class="exp-head"> CV </h3>
+                        <a href="{{ student.cv_url }}"> Click Here  </a>
+                        <!--  This is not getting Printed .Fix This. -->
+                        <ul>
+                            <li class="exp-li">
+
+                                <p class="exp-about"> for my C.V. </p>
+                            </li>
+                        </ul>
+
+                        <h3 class="exp-head"> Skills </h3>
+                        <ul>
+                            <li class="exp-li">
+                                <p class="exp-about"> {{ student.skills }} </p>
+                            </li>
+                        </ul>
+
+                        <h3 class="edu-head"> Education </h3>
+                        <ul>
+
+                            <li class="univ-li">
+                                <h4 class="univ-name"> {{ student.univ_studying }} </h4>
+                                <p class="univ-stream"> {{ student.course_name }} </p>
+                            </li>
+                            <li class="univ-li">
+                                <h4 class="univ-name"> {{ student.school_studied }} </h4>
+                            </li>
+
+                        </ul>
+
+                    </div>
                 </div>
 
             </div>
+        </div>
+        <!-- /container -->
 
-            <div class="col-md-8 card">
-                <!-- Education & interests -->
-                <div class="row education">
-
-
-                    <h3 class="exp-head"> Contact Details </h3>
-                  <ul>
-
-                    <li class="exp-li">
-                      <p class="exp-about"> Reach me at :- {{ student.phone_no  }} </p>
-
-                    </li>
-                      <li class="exp-li">
-                      <p class="exp-about"> Mail me at :- {{ student.email_id  }} </p>
-
-                    </li>
-                      <li class="exp-li">
-                      <h5 class="address"> {{ student.address| linebreaks  }} </h5>
-
-                    </li>
-                  </ul>
-
-
-                  <h3 class="exp-head"> Experience </h3>
-                  <ul>
-
-                    <li class="exp-li">
-                      <p class="exp-about"> {{ student.experience | linebreaks  }} </p>
-                    </li>
-                  </ul>
-
-                  <h3 class="exp-head"> Projects </h3>
-                  <ul>
-                    <li class="exp-li">
-                      <p class="exp-about"> {{ student.projects_info | linebreaks }} </p>
-                    </li>
-                  </ul>
-
-                    <h3 class="exp-head"> Publications </h3>
-                  <ul>
-                    <li class="exp-li">
-                      <p class="exp-about"> {{ student.publications| linebreaks  }} </p>
-                    </li>
-                  </ul>
-
-                    <h3 class="exp-head"> Extra-Curricular Activities </h3>
-                  <ul>
-                    <li class="exp-li">
-                      <p class="exp-about"> {{ student.extra_curr | linebreaks }} </p>
-                    </li>
-                  </ul>
-
-                    <h3 class="exp-head"> CV </h3>
-                  <a href="{{ student.cv_url }}"> Click Here  </a> <!--  This is not getting Printed .Fix This. -->
-                    <ul>
-                    <li class="exp-li">
-
-                      <p class="exp-about"> for my C.V. </p>
-                    </li>
-                  </ul>
-
-                   <h3 class="exp-head"> Skills </h3>
-                  <ul>
-                    <li class="exp-li">
-                      <p class="exp-about"> {{ student.skills }} </p>
-                    </li>
-                  </ul>
-
-
-
-
-                   <h3 class="edu-head"> Education </h3>
-                  <ul>
-
-                    <li class="univ-li">
-                      <h4 class="univ-name"> {{ student.univ_studying }} </h4>
-                      <p class="univ-stream"> Bachelor of Engineering, Electronics &amp; Telecommunication Engineering </p>
-                    </li>
-                    <li class="univ-li">
-                      <h4 class="univ-name"> {{ student.school_studied }} </h4>
-                    </li>
-
-                  </ul>
-
-
-
-                </div>
-            </div>
-
-
-          </div>
-        </div> <!-- /container --> 
-      
-
-
-
-      </div> <!-- wrapper -->
+    </div>
+    <!-- wrapper -->
 
     </br>
 
-
-
-
-
     <footer class="footer">
         <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-5 col-md-offset-1">
-              <span class="big">© 2017 - UnivNET</span>
+            <div class="row">
+                <div class="col-md-5 col-md-offset-1">
+                    <span class="big">© 2017 - UnivNET</span>
+                </div>
+                <div class="col-md-4 col-md-offset-2">
+                    <div class="row">
+                        <div class="col-md-12"><a href="#" target="_blank">About Us</a></div>
+                        <div class="col-md-12"><a href="#" target="_blank">Facebook</a></div>
+                        <div class="col-md-12"><a href="#" target="_blank">Twitter</a></div>
+                        <div class="col-md-12"><a href="{% static 'humans.txt' %}" target="_blank">Humans.txt</a></div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4 col-md-offset-2">
-              <div class="row">
-                <div class="col-md-12"><a href="#" target="_blank" >About Us</a></div>
-                <div class="col-md-12"><a href="#" target="_blank" >Facebook</a></div>
-                <div class="col-md-12"><a href="#" target="_blank" >Twitter</a></div>
-                <div class="col-md-12"><a href="{% static 'humans.txt' %}" target="_blank" >Humans.txt</a></div>
-              </div>
-            </div>
-          </div>
         </div>
-    </footer>  
+    </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
 
     <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
 
@@ -238,5 +230,6 @@
         r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
         ga('create','UA-XXXXX-X','auto');ga('send','pageview');
     </script>
-  </body>
+</body>
+
 </html>
