@@ -1,1 +1,1 @@
-python Univnet_Beta/manage.py runserver
+web: gunicorn Univnet_Beta/Univnet_Beta.wsgi --log-file -
