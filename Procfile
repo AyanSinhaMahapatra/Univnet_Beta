@@ -1,1 +1,1 @@
-web: python manage.py runserver
+python Univnet_Beta/manage.py runserver
