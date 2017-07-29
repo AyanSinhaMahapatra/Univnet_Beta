@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^home/', include('Users.urls')),
+    url(r'', include('Users.urls')),
 ]
 
 handler404 = 'Univnet_Beta.views.handler400'
