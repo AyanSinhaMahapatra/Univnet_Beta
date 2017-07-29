@@ -6,11 +6,6 @@ class Skill(models.Model):
     def __str__(self):
         return self.skill_name
 
-class School(models.Model):
-    school_name=models.CharField(max_length=300)
-    def __str__(self):
-        return self.school_name
-
 class University(models.Model):
     univ_name=models.CharField(max_length=300)
 
@@ -61,9 +56,9 @@ class Student(models.Model):
     experience = models.TextField()
     projects_info = models.TextField()
     publications = models.TextField()
+    school_studied=models.TextField()
 
     # Foreign Key Containers
-    school_studied = models.ForeignKey(School, blank=True, on_delete=models.CASCADE)
     univ_studying = models.ForeignKey(University, blank=True, on_delete=models.CASCADE)
 
     course_name = models.ForeignKey(Course, on_delete=models.CASCADE)
@@ -93,11 +88,11 @@ class Alumni(models.Model):
     experience = models.TextField()
     projects_info = models.TextField()
     publications = models.TextField()
+    school_studied = models.TextField()
 
     # Foreign Key Containers
     work = models.ForeignKey(University, on_delete=models.CASCADE)
     work_field_main = models.ForeignKey(Interest, on_delete=models.CASCADE)
-    school_studied = models.ForeignKey(School, on_delete=models.CASCADE)
     univ_studied = models.ForeignKey(University,  related_name='%(class)s_requests_created')
 
     # Many to Many Fields
