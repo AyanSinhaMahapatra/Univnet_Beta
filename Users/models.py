@@ -1,4 +1,6 @@
 from django.db import models
+from stdimage.models import StdImageField
+from stdimage.utils import UploadToUUID
 
 class Skill(models.Model):
     skill_name=models.CharField(max_length=150)
@@ -46,7 +48,9 @@ class Student(models.Model):
     phone_no = models.CharField(max_length=100)
     bio = models.TextField(max_length=1000)
     extra_curr = models.TextField()
-    image = models.FileField()
+    #image = models.FileField()
+    image_std=StdImageField(upload_to=UploadToUUID(path='images'),
+                            variations={'thumbnail': {'width': 400, 'height': 400}})
     cv_url = models.CharField(max_length=300)
     year_of_study = models.IntegerField()
     address = models.TextField(default='I live in Kolkata')
@@ -80,7 +84,9 @@ class Alumni(models.Model):
     last_name = models.CharField(max_length=100)
     phone_no = models.CharField(max_length=100)
     bio = models.TextField(max_length=1000)
-    image = models.FileField()
+    #image = models.FileField()
+    image_std = StdImageField(upload_to=UploadToUUID(path='images'),
+                              variations={'thumbnail': {'width': 400, 'height': 400}})
     cv_url = models.CharField(max_length=300)
     position = models.CharField(max_length=50)  # Company or University, Whatever
 
