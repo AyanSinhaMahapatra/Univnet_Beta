@@ -49,4 +49,5 @@ fabric.properties
 # All python compiled files
 *.pyc
 .idea/
+.env
 
