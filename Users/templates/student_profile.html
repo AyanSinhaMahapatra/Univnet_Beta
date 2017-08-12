@@ -59,7 +59,7 @@
                             </li>
                         </ul>
                     {% else %}
-                        <a class="btn btn-default navbar-btn navbar-right" href="#">Sign in</a>
+                        <a class="btn btn-default navbar-btn navbar-right" href="{% url 'login' %}?next=/">Sign in</a>
                     {% endif %}
                     <form class="navbar-form navbar-right form-search form-inline">
                         <div class="input-group">
