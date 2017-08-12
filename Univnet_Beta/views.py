@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from Univnet_Beta.forms import Student_SignUpForm
 from Univnet_Beta.forms import Alumni_SignUpForm
 
-@login_required
+# @login_required
 def home(request):
     return render(request, 'home.html')
 
