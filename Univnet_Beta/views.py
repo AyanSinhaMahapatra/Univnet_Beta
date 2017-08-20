@@ -10,6 +10,7 @@ from Univnet_Beta.forms import Alumni_SignUpForm
 def home(request):
     return render(request, 'home.html')
 
+
 def student_signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -24,6 +25,7 @@ def student_signup(request):
         form = Student_SignUpForm()
     return render(request, 'student_signup.html', {'form': form})
 
+
 def alumni_signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -37,6 +39,7 @@ def alumni_signup(request):
     else:
         form = Alumni_SignUpForm()
     return render(request, 'alumni_signup.html', {'form': form})
+
 
 def handler400(request):
     response = render(request, '404.html', status=404)
