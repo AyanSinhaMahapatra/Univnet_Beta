@@ -41,16 +41,14 @@ class Level(models.Model):
 class Student(models.Model):
     username_roll = models.CharField(primary_key=True, max_length=12)
     email_id = models.EmailField()
-
     password = models.CharField(max_length=100)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     phone_no = models.CharField(max_length=100)
     bio = models.TextField(max_length=1000)
     extra_curr = models.TextField()
-    #image = models.FileField()
     image_std=StdImageField(upload_to=UploadToUUID(path='images'),
-                            variations={'thumbnail': {'width': 400, 'height': 400}})
+                    variations={'thumbnail': {'width': 400, 'height': 400}})
     cv_url = models.CharField(max_length=300)
     year_of_study = models.IntegerField()
     address = models.TextField(default='I live in Kolkata')
@@ -64,7 +62,6 @@ class Student(models.Model):
 
     # Foreign Key Containers
     univ_studying = models.ForeignKey(University, blank=True, on_delete=models.CASCADE)
-
     course_name = models.ForeignKey(Course, on_delete=models.CASCADE)
     level = models.ForeignKey(Level, on_delete=models.CASCADE)
     work_field_main = models.ForeignKey(Interest, on_delete=models.CASCADE)
@@ -84,7 +81,6 @@ class Alumni(models.Model):
     last_name = models.CharField(max_length=100)
     phone_no = models.CharField(max_length=100)
     bio = models.TextField(max_length=1000)
-    #image = models.FileField()
     image_std = StdImageField(upload_to=UploadToUUID(path='images'),
                               variations={'thumbnail': {'width': 400, 'height': 400}})
     cv_url = models.CharField(max_length=300)
