@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 class Student_SignUpForm(UserCreationForm):
     first_name = forms.CharField(max_length=30, required=False, help_text='Required.')
     last_name = forms.CharField(max_length=30, required=False, help_text='Required.')
+    password = forms.CharField(widget=forms.PasswordInput)
     email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
     bio = forms.CharField(max_length=1000, help_text='Say how awesome you are.')
     extra_curr = forms.CharField(max_length=1000, help_text='What are your extra curricular activities.')
@@ -37,6 +38,7 @@ class Student_SignUpForm(UserCreationForm):
 class Alumni_SignUpForm(UserCreationForm):
     first_name = forms.CharField(max_length=30, required=False, help_text='Required.')
     last_name = forms.CharField(max_length=30, required=False, help_text='Required.')
+    password = forms.CharField(widget=forms.PasswordInput)
     email = forms.EmailField(max_length=254, help_text='Inform a valid email address.')
     bio = forms.CharField(max_length=1000, help_text='Say how awesome you are.')
     extra_curr = forms.CharField(max_length=1000, help_text='What are your extra curricular activities.')

@@ -24,8 +24,8 @@ urlpatterns = [
     url(r'^$', core_views.home, name='home'),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
-    url(r'^student_signup/$', core_views.signup, name='student_signup'),
-    url(r'^alumni_signup/$', core_views.signup, name='alumni_signup'),
+    url(r'^student_signup/$', core_views.student_signup, name='student_signup'),
+    url(r'^alumni_signup/$', core_views.alumni_signup, name='alumni_signup'),
     url(r'^admin/', admin.site.urls),
     url(r'', include('Users.urls')),
 ]
