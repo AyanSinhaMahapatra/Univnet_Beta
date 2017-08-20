@@ -56,4 +56,6 @@ class Alumni_SignUpForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'bio','extra_curr','image','cv_url','position','experience','projects_info','publications','school_studied','work','univ_studied','skills',)
+        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'bio','extra_curr','image',
+                  'cv_url','position','experience','projects_info','publications','school_studied','work','univ_studied',
+                  'skills',)
