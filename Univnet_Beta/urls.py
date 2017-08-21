@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^alumni_signup/$', core_views.alumni_signup, name='alumni_signup'),
     url(r'^admin/', admin.site.urls),
     url(r'', include('Users.urls')),
+    url(r'', include('find_student.urls')),
 ]
 
 handler404 = 'Univnet_Beta.views.handler400'
