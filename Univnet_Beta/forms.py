@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from Users.models import Course, Level, Interest, University, Skill
 
 
-class Student_SignUpForm(UserCreationForm, ModelForm):
+class Student_SignUpForm( ModelForm):
     username_roll = forms.CharField(max_length=20, help_text=' Your Unique University Roll Number')
     email_id = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
     password = forms.CharField(widget=forms.PasswordInput)
@@ -43,7 +43,7 @@ class Student_SignUpForm(UserCreationForm, ModelForm):
                   'univ_studying','course_name','skills','work_field_main')
 
 
-class Alumni_SignUpForm(UserCreationForm, ModelForm):
+class Alumni_SignUpForm( ModelForm):
     username= forms.CharField(max_length=20, help_text= 'Your Unique Username')
     email_id = forms.EmailField(max_length=254, help_text='Inform a valid email address.')
     password = forms.CharField(widget=forms.PasswordInput)
